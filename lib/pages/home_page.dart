@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_install_flutter/utils/todo_list.dart'; // Pastikan ini adalah path yang benar
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -10,6 +11,10 @@ class HomePage extends StatelessWidget {
     ],
     [
       'Drink Coffee',
+      false
+    ],
+    [
+      'Code with obeetek',
       false
     ],
   ];
@@ -26,22 +31,9 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (BuildContext context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple, // Hanya gunakan color di sini
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Text(
-                toDoList[index][0],
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
-              ),
-            ),
+          // Gunakan widget TodoList untuk menampilkan task
+          return TodoList(
+            taskName: toDoList[index][0], // Mengirimkan nama task ke TodoList
           );
         },
       ),
