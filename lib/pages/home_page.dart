@@ -33,7 +33,8 @@ class HomePage extends StatelessWidget {
         itemBuilder: (BuildContext context, index) {
           // Gunakan widget TodoList untuk menampilkan task
           return TodoList(
-            taskName: toDoList[index][0], // Mengirimkan nama task ke TodoList
+            taskName: toDoList[index][0],
+            taskComplated: toDoList[index][1],
           );
         },
       ),

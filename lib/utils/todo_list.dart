@@ -4,9 +4,13 @@ class TodoList extends StatelessWidget {
   const TodoList({
     super.key,
     required this.taskName,
+    required this.taskComplated,
+    this.onChanged,
   });
 
   final String taskName;
+  final bool taskComplated;
+  final Function(bool?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +27,17 @@ class TodoList extends StatelessWidget {
           color: Colors.deepPurple,
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Text(
-          taskName, // Hapus tanda titik koma
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-          ),
+        child: Row(
+          children: [
+            Checkbox(value: taskComplated, onChanged: onChanged),
+            Text(
+              taskName, // Hapus tanda titik koma
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
+          ],
         ),
       ),
     );
