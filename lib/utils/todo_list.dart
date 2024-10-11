@@ -29,7 +29,13 @@ class TodoList extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Checkbox(value: taskComplated, onChanged: onChanged),
+            Checkbox(
+              value: taskComplated,
+              onChanged: onChanged,
+              checkColor: Colors.black,
+              activeColor: Colors.white,
+              side: const BorderSide(color: Colors.white),
+            ),
             Text(
               taskName, // Hapus tanda titik koma
               style: const TextStyle(
