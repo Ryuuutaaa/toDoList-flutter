@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test_install_flutter/utils/todo_list.dart'; // Pastikan ini adalah path yang benar
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<List<dynamic>> toDoList = [
     [
       'Learn Flutter',
@@ -18,6 +23,12 @@ class HomePage extends StatelessWidget {
       false
     ],
   ];
+
+  void checkBoxChanged(int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +46,7 @@ class HomePage extends StatelessWidget {
           return TodoList(
             taskName: toDoList[index][0],
             taskComplated: toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(index),
           );
         },
       ),
