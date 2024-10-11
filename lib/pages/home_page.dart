@@ -52,7 +52,13 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: Row(
         children: [
-          Expanded(child: TextField()),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextField(
+              decoration: InputDecoration(filled: true, fillColor: Colors.deepPurple.shade200, enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white), borderRadius: BorderRadius.circular(15)), focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white), borderRadius: BorderRadius.circular(15))),
+            ),
+          )),
           FloatingActionButton(
             onPressed: () {},
             child: Icon(Icons.add),
