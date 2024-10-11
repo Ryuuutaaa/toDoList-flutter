@@ -50,6 +50,15 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+      floatingActionButton: Row(
+        children: [
+          Expanded(child: TextField()),
+          FloatingActionButton(
+            onPressed: () {},
+            child: Icon(Icons.add),
+          ),
+        ],
+      ),
     );
   }
 }
