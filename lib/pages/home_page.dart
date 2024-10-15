@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _controller = TextEditingController();
+
   final List<List<dynamic>> toDoList = [
     [
       'Learn Flutter',
@@ -27,6 +29,16 @@ class _HomePageState extends State<HomePage> {
   void checkBoxChanged(int index) {
     setState(() {
       toDoList[index][1] = !toDoList[index][1];
+    });
+  }
+
+  void saveNewTask() {
+    setState(() {
+      toDoList.add([
+        _controller.text,
+        false
+      ]);
+      _controller.clear();
     });
   }
 
@@ -57,6 +69,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               child: TextField(
+                controller: _controller,
                 decoration: InputDecoration(
                   hintText: "Add a new todo items",
                   filled: true,
@@ -74,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(width: 10), // Tambahkan spasi antara TextField dan FAB
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: saveNewTask,
               child: const Icon(Icons.add),
             ),
           ],
