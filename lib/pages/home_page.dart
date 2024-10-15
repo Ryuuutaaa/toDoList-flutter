@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
+                  hintText: "Add a new todo items",
                   filled: true,
                   fillColor: Colors.deepPurple.shade200,
                   enabledBorder: OutlineInputBorder(
